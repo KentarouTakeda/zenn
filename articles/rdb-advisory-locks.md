@@ -334,7 +334,7 @@ BEGIN;
 
 -- 空振りを防ぐためのアドバイザリーロック
 -- 成功したときだけ続行
-SELECT pg_try_advisory_xact_lock('user:U1:order');
+SELECT pg_try_advisory_xact_lock(hashtext('user:U1:order'));
 
 WITH
 m_all AS (
